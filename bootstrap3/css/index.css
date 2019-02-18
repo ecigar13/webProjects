@@ -1,0 +1,62 @@
+#logo {
+  max-width: 50px;
+}
+
+#navbarNav {}
+
+#home {}
+
+#about {}
+
+#projects {}
+
+#contact {}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark {}
+
+.navbar-brand {}
+
+.navbar-nav {}
+
+.nav-item.active {}
+
+.nav-link {}
+
+.sr-only {}
+
+.nav-item {}
+
+.container {}
+
+.row {}
+
+.col-3 {}
+
+.list-group {}
+
+.list-group-item {}
+
+.col.border.border-primary {}
+
+.home.list-group-item {}
+
+.card {}
+
+.card-header {}
+
+.card-body {}
+
+.sectionImage {
+  max-width: 30%;
+  float: left;
+  clear: left;
+  margin: 3%;
+}
+
+.about.list-group-item {}
+
+.project.list-group-item {}
+
+.contact.list-group-item {}
+
+.col-3.border {}

@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="babynames.js"></script>
+  <link rel="stylesheet" type="text/css" href="babynames.css">
+</head>
+
+<body>
+  <form class="form">
+    <label for="year">Year</label>
+    <select class="form-control" id="year" name="year">
+      <option value="*">All years</option>
+      <option value="2005">2005</option>
+      <option value="2006">2006</option>
+      <option value="2007">2007</option>
+      <option value="2008">2008</option>
+      <option value="2009">2009</option>
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+    </select>
+    <label for="gender">Gender</label>
+    <select class="form-control" id="gender" name="gender">
+      <option value="*">Both</option>
+      <option value="m">m</option>
+      <option value="f">f</option>
+    </select>
+    <input type="submit" value="Submit" name="submit">
+  </form>
+
+  <div class='result'></div>
+
+
+
+
+</body>
+
+
+</html>

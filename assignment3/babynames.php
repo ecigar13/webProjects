@@ -10,28 +10,40 @@
     //mysqli_report(MYSQLI_REPORT_ALL);
 
     //connect to database
-    $con = mysqli_connect("localhost","root","root","HW3");
-    /* check connection */
-    if (mysqli_connect_errno()) {
-      printf("Connect failed: %s\n", mysqli_connect_error());
+    $con = new mysqli("localhost","root","root","HW3");
+    // Check connection
+    if ($mysqli->connect_error) {
+      printf("Connect failed: %s\n", $mysqli->connect_error);
       exit();
     }
+     
+    if($year != "*" && gender != "*"){
+      $yearFilter = $year;
+      $genderFilter = $gender;
+      $sql="SELECT * FROM BabyNames WHERE ".$yearFilter." AND ".$genderFilter." LIMIT 5";
+      $result=$con->query($sql);
 
-    if($year == "*"){
-      $yearFilter='1';
-    } else $yearFilter="year='$year'";
-    if($gender == "*"){
-      $genderFilter='1';
-    } else $genderFilter="gender='$gender'";
+      if($result == FALSE){
+        echo "SQL error, turn this on to debug: mysqli_report(MYSQLI_REPORT_ALL);";
+      }else if($result->num_rows == 0){
+        echo $year." does not have a most common name.<br>";
+      }
 
-    $sql="SELECT * FROM BabyNames WHERE ".$yearFilter." AND ".$genderFilter." LIMIT 5";
-    $result=mysqli_query($con,$sql);
+      foreach($result as $row){
+        $arr[] = ['name' =>$row["name"], 'ranking' =>$row["ranking"],'gender' => $row["gender"], 'year' => $row["year"]];
+        //echo $row["name"]." ".$row["ranking"]." ".$row["gender"]." ".$row["year"]."<br>";
+      }
+    } elseif ($year == "*") {
+      //select for all years
+      $minYear = $mysqli->query("SELECT min(year) FROM BabyNames");
+      $maxYear = $mysqli->query("SELECT max(year) FROM BabyNames");
+    } elseif ($gender == "*") {
+      $genderArr = array('m','f');
+    } 
 
-    if($result == FALSE){
-      echo "SQL error, turn this on to debug: mysqli_report(MYSQLI_REPORT_ALL);";
-    }else if($result->num_rows == 0){
-      echo $year." does not have a most common name.<br>";
-    }else {
+
+
+    else {
       //convert to json or text.
       foreach($result as $row){
         $arr[] = ['name' =>$row["name"], 'ranking' =>$row["ranking"],'gender' => $row["gender"], 'year' => $row["year"]];

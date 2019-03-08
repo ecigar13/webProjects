@@ -11,8 +11,8 @@ $(document).ready(function () {
       console.log(error);
     }).done(function (msg) {
       console.log("Submitted.");
+      console.log(msg);
       let obj = jQuery.parseJSON(msg);
-      console.log(obj);
       $('.result').empty();
       $('.result').append("<table id='table'></table>")
       $('#table').append('<tr><th>' + 'Name' + '</th><th>' + 'Ranking' + '</th><th>' + 'Gender' +

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script>
+    $(window).on('load', function () {
+
+      var payload = {
+        id: '1',
+        preferredName: '2'
+      };
+      console.log(payload);
+
+      $.ajax({
+        type: "POST",
+        url: "output.php",
+        data: payload,
+        dataType: "text"
+      }).fail(function (xhr, status, error) {
+        console.log(xhr);
+      }).done(function (xhr) {
+        console.log(xhr);
+      });
+    });
+  </script>
+</head>
+
+<body></body>
+
+</html>
